@@ -8,6 +8,7 @@ namespace Harry.DI
     {
         #region Add
         public static IContainerBuilder AddSingleton<TService, TImplementation>(this IContainerBuilder builder)
+            where TImplementation : TService
         {
             return builder.Add(typeof(TService), typeof(TImplementation), ServiceLifetime.Singleton);
         }
@@ -18,6 +19,7 @@ namespace Harry.DI
         }
 
         public static IContainerBuilder AddScoped<TService, TImplementation>(this IContainerBuilder builder)
+            where TImplementation : TService
         {
             return builder.Add(typeof(TService), typeof(TImplementation), ServiceLifetime.Scoped);
         }
@@ -28,6 +30,7 @@ namespace Harry.DI
         }
 
         public static IContainerBuilder AddTransient<TService, TImplementation>(this IContainerBuilder builder)
+            where TImplementation : TService
         {
             return builder.Add(typeof(TService), typeof(TImplementation), ServiceLifetime.Transient);
         }
@@ -38,6 +41,7 @@ namespace Harry.DI
         }
 
         public static IContainerBuilder TryAddSingleton<TService, TImplementation>(this IContainerBuilder builder)
+            where TImplementation : TService
         {
             if (builder.IsRegistered(typeof(TService))) return builder;
             return builder.Add(typeof(TService), typeof(TImplementation), ServiceLifetime.Singleton);
@@ -50,6 +54,7 @@ namespace Harry.DI
         }
 
         public static IContainerBuilder TryAddScoped<TService, TImplementation>(this IContainerBuilder builder)
+            where TImplementation : TService
         {
             if (builder.IsRegistered(typeof(TService))) return builder;
             return builder.Add(typeof(TService), typeof(TImplementation), ServiceLifetime.Scoped);
@@ -62,6 +67,7 @@ namespace Harry.DI
         }
 
         public static IContainerBuilder TryAddTransient<TService, TImplementation>(this IContainerBuilder builder)
+            where TImplementation : TService
         {
             if (builder.IsRegistered(typeof(TService))) return builder;
             return builder.Add(typeof(TService), typeof(TImplementation), ServiceLifetime.Transient);
