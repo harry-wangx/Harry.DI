@@ -9,7 +9,7 @@ using Autofac;
 using Autofac.Builder;
 #endif
 
-namespace Harry.IoC
+namespace Harry.DI
 {
     public class ContainerBuilder : IContainerBuilder
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Harry.IoC;
+using Harry.DI;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

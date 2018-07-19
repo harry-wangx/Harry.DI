@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Harry.IoC
+namespace Harry.DI
 {
     public static class ServiceProviderServiceExtensions
     {

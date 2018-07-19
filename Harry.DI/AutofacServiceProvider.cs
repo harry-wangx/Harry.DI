@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Autofac;
 
-namespace Harry.IoC
+namespace Harry.DI
 {
     /// <summary>
     /// <see cref="IServiceProvider"/> 的 Autofac 实现.

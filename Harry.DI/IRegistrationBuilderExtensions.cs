@@ -5,7 +5,7 @@ using System.Text;
 using Autofac;
 using Autofac.Builder;
 
-namespace Harry.IoC
+namespace Harry.DI
 {
     public static class IRegistrationBuilderExtensions
     {
