@@ -10,12 +10,35 @@ namespace Harry.DI
 {
     public static class ServiceCollectionExtensions
     {
+        /// <summary>
+        /// 添加自定义DI库
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="containerBuilder"></param>
+        /// <returns></returns>
         public static IServiceCollection AddDI(this IServiceCollection services, Action<IContainerBuilder> containerBuilder)
         {
-            services = services ?? throw new ArgumentNullException(nameof(services));
+            if (services == null)
+            {
+                throw new ArgumentNullException(nameof(services));
+            }
             ContainerBuilder builder = new ContainerBuilder(services);
             containerBuilder?.Invoke(builder);
             return services;
+        }
+
+        /// <summary>
+        /// 添加自定义DI库
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
+        public static IContainerBuilder AddDI(this IServiceCollection services)
+        {
+            if (services == null)
+            {
+                throw new ArgumentNullException(nameof(services));
+            }
+            return new ContainerBuilder(services);
         }
     }
 }

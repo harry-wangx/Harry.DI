@@ -6,6 +6,12 @@ namespace Harry.DI.Extensions
 {
     public static class ServiceProviderServiceExtensions
     {
+        /// <summary>
+        /// 从容器中实例
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="provider"></param>
+        /// <returns></returns>
         public static T GetService<T>(this IServiceProvider provider)
         {
             if (provider == null)
@@ -16,7 +22,12 @@ namespace Harry.DI.Extensions
             return (T)provider.GetService(typeof(T));
         }
 
-
+        /// <summary>
+        /// 从容器中实例（如未注册，会抛出 InvalidOperationException 异常）
+        /// </summary>
+        /// <param name="provider"></param>
+        /// <param name="serviceType"></param>
+        /// <returns></returns>
         public static object GetRequiredService(this IServiceProvider provider, Type serviceType)
         {
             if (provider == null)
@@ -35,6 +46,12 @@ namespace Harry.DI.Extensions
             return result;
         }
 
+        /// <summary>
+        /// 从容器中实例（如未注册，会抛出 InvalidOperationException 异常）
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="provider"></param>
+        /// <returns></returns>
         public static T GetRequiredService<T>(this IServiceProvider provider)
         {
             if (provider == null)
@@ -45,7 +62,12 @@ namespace Harry.DI.Extensions
             return (T)provider.GetRequiredService(typeof(T));
         }
 
-
+        /// <summary>
+        /// 从容器中实例的集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="provider"></param>
+        /// <returns></returns>
         public static IEnumerable<T> GetServices<T>(this IServiceProvider provider)
         {
             if (provider == null)
@@ -56,6 +78,12 @@ namespace Harry.DI.Extensions
             return provider.GetRequiredService<IEnumerable<T>>();
         }
 
+        /// <summary>
+        /// 从容器中实例的集合
+        /// </summary>
+        /// <param name="provider"></param>
+        /// <param name="serviceType"></param>
+        /// <returns></returns>
         public static IEnumerable<object> GetServices(this IServiceProvider provider, Type serviceType)
         {
             if (provider == null)
