@@ -6,7 +6,62 @@ namespace Harry.DI
 {
     public static class ContainerBuilderExtensions
     {
+        public static IContainerBuilder AddSingleton(this IContainerBuilder builder,
+            Type serviceType, Type implementationType)
+        {
+            builder.Add(serviceType, implementationType, ServiceLifetime.Singleton);
+            return builder;
+        }
+
+        public static IContainerBuilder AddScoped(this IContainerBuilder builder,
+            Type serviceType, Type implementationType)
+        {
+            builder.Add(serviceType, implementationType, ServiceLifetime.Scoped);
+            return builder;
+        }
+
+        public static IContainerBuilder AddTransient(this IContainerBuilder builder,
+            Type serviceType, Type implementationType)
+        {
+            builder.Add(serviceType, implementationType, ServiceLifetime.Transient);
+            return builder;
+        }
+
+        public static IContainerBuilder TryAdd(this IContainerBuilder builder,
+             Type serviceType, Type implementationType, ServiceLifetime lifetime)
+        {
+            if (builder.IsRegistered(serviceType)) return builder;
+            builder.Add(serviceType, implementationType, lifetime);
+            return builder;
+        }
+
+        public static IContainerBuilder TryAddSingleton(this IContainerBuilder builder,
+            Type serviceType, Type implementationType)
+        {
+            if (builder.IsRegistered(serviceType)) return builder;
+            builder.Add(serviceType, implementationType, ServiceLifetime.Singleton);
+            return builder;
+        }
+
+        public static IContainerBuilder TryAddScoped(this IContainerBuilder builder,
+            Type serviceType, Type implementationType)
+        {
+            if (builder.IsRegistered(serviceType)) return builder;
+            builder.Add(serviceType, implementationType, ServiceLifetime.Scoped);
+            return builder;
+        }
+
+        public static IContainerBuilder TryAddTransient(this IContainerBuilder builder,
+            Type serviceType, Type implementationType)
+        {
+            if (builder.IsRegistered(serviceType)) return builder;
+            builder.Add(serviceType, implementationType, ServiceLifetime.Transient);
+            return builder;
+        }
+
         #region Add
+
+
         public static IContainerBuilder AddSingleton<TService, TImplementation>(this IContainerBuilder builder)
             where TImplementation : TService
         {
