@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-#if COREFX
+#if DI
 using Microsoft.Extensions.DependencyInjection;
 #else
 using Autofac;
@@ -13,7 +13,7 @@ namespace Harry.DI
 {
     public class ContainerBuilder : IContainerBuilder
     {
-#if COREFX
+#if DI
         private readonly IServiceCollection serviceCollection;
         public ContainerBuilder() : this(new ServiceCollection()) { }
 
@@ -49,7 +49,7 @@ namespace Harry.DI
                 throw new ArgumentNullException(nameof(implementationType));
             }
 
-#if COREFX
+#if DI
             serviceCollection.Add(new ServiceDescriptor(serviceType, implementationType, GetMSServiceLifetime(lifetime)));
 #else
             if (serviceType.IsGenericTypeDefinition)
@@ -78,7 +78,7 @@ namespace Harry.DI
                 throw new ArgumentNullException(nameof(instance));
             }
 
-#if COREFX
+#if DI
             serviceCollection.Add(new ServiceDescriptor(typeof(TService), instance));
 #else
             builder.RegisterInstance(instance).As(typeof(TService)).SetLifetime(ServiceLifetime.Singleton);
@@ -96,7 +96,7 @@ namespace Harry.DI
                 throw new ArgumentNullException(nameof(factory));
             }
 
-#if COREFX
+#if DI
             serviceCollection.Add(new ServiceDescriptor(typeof(TService), factory, GetMSServiceLifetime(lifetime)));
 #else
             var registration = RegistrationBuilder.ForDelegate(typeof(TService), (context, parameters) =>
@@ -115,7 +115,7 @@ namespace Harry.DI
 
         public bool IsRegistered(Type serviceType)
         {
-#if COREFX
+#if DI
             return serviceCollection.Any(m => m.ServiceType == serviceType);
 #else
             return lstRegistered.Any(m => m == serviceType);
@@ -124,7 +124,7 @@ namespace Harry.DI
 
         public IServiceProvider Build()
         {
-#if COREFX
+#if DI
             return serviceCollection.BuildServiceProvider();
 #else
             var container = builder.Build();
@@ -133,7 +133,7 @@ namespace Harry.DI
         }
 
 
-#if COREFX
+#if DI
         private Microsoft.Extensions.DependencyInjection.ServiceLifetime GetMSServiceLifetime(ServiceLifetime lifetime)
         {
             switch (lifetime)

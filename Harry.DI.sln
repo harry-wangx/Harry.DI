@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harry.DI", "Harry.DI\Harry.DI.csproj", "{15664A36-D521-47F8-95A6-CF1639850962}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harry.DI", "Harry.DI\Harry.DI.csproj", "{15664A36-D521-47F8-95A6-CF1639850962}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harry.DI.Abstractions", "Harry.DI.Abstractions\Harry.DI.Abstractions.csproj", "{54D9A649-5702-48EB-9746-235440A14610}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harry.DI.Abstractions", "Harry.DI.Abstractions\Harry.DI.Abstractions.csproj", "{54D9A649-5702-48EB-9746-235440A14610}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harry.DI.Test", "Harry.DI.Test\Harry.DI.Test.csproj", "{D990F7C6-3BEE-4555-BDAE-767AFF7480C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{54D9A649-5702-48EB-9746-235440A14610}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54D9A649-5702-48EB-9746-235440A14610}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54D9A649-5702-48EB-9746-235440A14610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D990F7C6-3BEE-4555-BDAE-767AFF7480C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D990F7C6-3BEE-4555-BDAE-767AFF7480C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D990F7C6-3BEE-4555-BDAE-767AFF7480C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D990F7C6-3BEE-4555-BDAE-767AFF7480C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

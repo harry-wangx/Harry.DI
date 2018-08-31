@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net35;net40;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net45;net40;net35</TargetFrameworks>
     <RootNamespace>Harry.DI</RootNamespace>
-    <Version>1.0.0-alpha6</Version>
+    <Version>1.0.0-alpha7</Version>
     <Authors>Harry</Authors>
   </PropertyGroup>
   

@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net35;net40;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net45;net40;net35</TargetFrameworks>
     <RootNamespace>Harry.DI</RootNamespace>
-    <Version>1.0.0-alpha6</Version>
+    <Version>1.0.0-alpha7</Version>
     <Authors>Harry</Authors>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <DefineConstants>$(DefineConstants);COREFX</DefineConstants>
+    <DefineConstants>$(DefineConstants);DI</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -16,21 +16,20 @@
       <Version>2.0.0</Version>
     </PackageReference>
   </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net35'">
-    <PackageReference Include="Autofac" Version="2.6.3.862" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+    <PackageReference Include="Autofac" Version="4.8.1" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
     <PackageReference Include="Autofac" Version="3.5.2" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
-    <PackageReference Include="Autofac" Version="4.8.1" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'net35'">
+    <PackageReference Include="Autofac" Version="2.6.3.862" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Harry.DI.Abstractions\Harry.DI.Abstractions.csproj" />
   </ItemGroup>
-  
+
 </Project>

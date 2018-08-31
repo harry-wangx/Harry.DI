@@ -1,4 +1,4 @@
-﻿#if !COREFX
+﻿#if !DI
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +7,7 @@ using Autofac.Builder;
 
 namespace Harry.DI
 {
-    public static class IRegistrationBuilderExtensions
+    public static class RegistrationBuilderExtensions
     {
         public static IRegistrationBuilder<TLimit, TActivatorData, TRegistrationStyle> SetLifetime<TLimit, TActivatorData, TRegistrationStyle>(this IRegistrationBuilder<TLimit, TActivatorData, TRegistrationStyle> rb, ServiceLifetime serviceLifetime)
         {
